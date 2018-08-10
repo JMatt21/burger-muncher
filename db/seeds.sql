@@ -1,0 +1,3 @@
+INSERT INTO burgers (name) VALUES ('COFFEE BURGER');
+INSERT INTO burgers (name) VALUES ('CHEETOS BURGER');
+INSERT INTO burgers (name) VALUES ('CHICKEN BURGER');

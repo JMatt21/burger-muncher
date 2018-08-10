@@ -1,0 +1,12 @@
+<ul>
+{{#each burgers}}
+<li id={{this.id}} devoured={{ this.devoured }}>
+name: {{this.name}}
+id: {{this.id}}
+devoured: {{ this.devoured }}
+</li>
+{{/each}}
+</ul>
+<input type="text" id="burger-text"></input>
+<button type="submit">Submit</button>
+
