@@ -1,12 +1,32 @@
-<ul>
-{{#each burgers}}
-<li id={{this.id}} devoured={{ this.devoured }}>
-name: {{this.name}}
-id: {{this.id}}
-devoured: {{ this.devoured }}
-</li>
-{{/each}}
-</ul>
-<input type="text" id="burger-text"></input>
-<button type="submit">Submit</button>
-
+<div id='content'>
+    <div id='top'>
+        <h1> Welcome to the Burger Muncher! </h1>
+        <img src='/assets/img/burger.png'>
+        <h2> Click a Burger Name to Devour it!
+    </div>
+    <div id='bottom' class='clearfix'>
+        <div id='left'>
+            <h3> Burgers ready to eat! </h3>
+            <ul>
+                {{#each burgers}} {{#unless this.devoured}}
+                <li id={{this.id}} devoured={{ this.devoured }}>
+                    {{this.name}}
+                </li>
+                {{/unless}} {{/each}}
+            </ul>
+        </div>
+        <div id='right'>
+            <h3> Burgers that are already taken. </h3>
+            <ul id='eaten-text'>
+                {{#each burgers}} {{#if this.devoured}}
+                <li id={{this.id}} devoured={{ this.devoured }}>
+                    {{this.name}}
+                </li>
+                {{/if}} {{/each}}
+            </ul>
+        </div>
+        
+    </div>
+    <input type="text" id="burger-text" placeholder="Type New Burger Here!"></input>
+    <button type="submit">Cook up a new burger!</button>
+</div>
