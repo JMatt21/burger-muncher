@@ -10,7 +10,7 @@ $(document).ready(function () {
         });
     });
 
-    $("li").on("click", function () {
+    $("li[devoured=0]").on("click", function () {
         const burgerID = $(this).attr('id');
         const isDevoured = $(this).attr('devoured');
         console.log(burgerID, isDevoured);
@@ -18,8 +18,12 @@ $(document).ready(function () {
         $.ajax({
             url: "/api/burgers/" + burgerID,
             type: "PUT",
-            data: { devoured: !(!! + isDevoured) }
+            // data: { devoured: !(!! + isDevoured) }
             // !! + 0 returns false, while !! + 1 returns true
+            // The 'devoured' key above was to reverse true/false on a burger
+            // However we can't bring back burgers from the digestive system
+            // So we will always set devoured to true
+            data: { devoured: true }
         }).then(function (ret) {
             location.reload();
         })
